@@ -1,0 +1,26 @@
+.contentWrapper{
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.messages{
+    padding: 100px;
+}
+.messageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    border: 1px solid purple;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+.inputBox{
+    display: flex;
+    align-items: center;
+    width: calc(100% - 4px);
+    height: 70px;
+    border: 1px solid gray;
+}
