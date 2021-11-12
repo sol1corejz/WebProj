@@ -1,0 +1,6 @@
+.dialogsMenu{
+    grid-area: nav;
+    display: flex;
+    flex-flow: column;
+    background-color: white;
+}
