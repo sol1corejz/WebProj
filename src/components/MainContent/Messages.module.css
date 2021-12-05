@@ -5,7 +5,9 @@
     justify-content: space-between;
 }
 .messages{
-    padding: 100px;
+    padding-top: 20px;
+    padding-left: 50px;
+    overflow-y: auto;
 }
 .messageContainer{
     display: flex;
@@ -17,10 +19,25 @@
     border-radius: 15px;
     margin-bottom: 15px;
 }
-.inputBox{
+.sendMessageBox{
+    border-top: 1px solid gray;
     display: flex;
-    align-items: center;
-    width: calc(100% - 4px);
+    align-self: flex-end;
+    width: 100%;
+}
+.inputBox{
+    border:none;
+    background:none;
+    outline:none;
+    padding:10px;
+
+
+    resize: none;
+    width: 90%;
     height: 70px;
-    border: 1px solid gray;
+    overflow-y: auto;
+    font-size: large;
+}
+.sendButton{
+    width: 10%;
 }

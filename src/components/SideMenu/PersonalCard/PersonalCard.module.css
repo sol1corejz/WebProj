@@ -4,10 +4,12 @@ a{
     height: calc(50% - 15px);
 }
 .PersonalCard{
-    display: grid;
-    grid-template-columns: 100px 200px 120px;
+    display: flex;
     border: black;
     background-color: rgb(204, 119, 34);
+}
+.photoWrapper{
+    width: 100px;
 }
 .PersonalPhoto{
     width: 70px;
@@ -16,11 +18,13 @@ a{
     margin: 10px 15px;
 }
 .Name{
+    width: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .Buttons{
+    width: 120px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
