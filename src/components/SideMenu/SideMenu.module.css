@@ -4,3 +4,6 @@
     flex-flow: column;
     background-color: white;
 }
+.dialogs {
+    overflow-x: auto;
+}

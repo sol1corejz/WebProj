@@ -8,11 +8,11 @@ const Name = (props) => {
     )
 }
 
-const Avatar = (props) => {
+const Avatar = () => {
     return(
         <div className={styles.photoWrapper}>
             <img className={styles.PersonalPhoto}
-                 src="https://yt3.ggpht.com/ytc/AKedOLSDfkyRyvD8wZlHqtlKyNqE5H5BqUI2CxqOKU7wAg=s900-c-k-c0x00ffffff-no-rj"
+                 src="https://pixelbox.ru/wp-content/uploads/2021/05/ava-vk-animal-91.jpg"
                  alt="ProfilePhoto"
             />
         </div>
@@ -24,7 +24,7 @@ const PersonalCard = () => {
         <div className={styles.PersonalCard}>
             <Avatar/>
 
-            <Name name={'Вадим Казаев'}>YourName</Name>
+            <Name name={'Вадим Казаев'}/>
 
             <div className={styles.Buttons}>
                 <Link to={'/search'} className={styles.searchButton}/>

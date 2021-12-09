@@ -1,0 +1,33 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-width: 600px;
+    max-width: 980px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.name {
+    display: flex;
+}
+
+.inputBox{
+    height: 50px;
+    width: 350px;
+    margin-right: 5px;
+}
+
+.submitButton {
+    height: 56px;
+}
+
+.submitButton:first-child{
+    margin-right: 5px;
+}
