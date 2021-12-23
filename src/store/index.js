@@ -7,9 +7,9 @@ import {composeWithDevTools} from "redux-devtools-extension";
 
 const rootReducer = combineReducers({
     addDialogReducer,
-    //changeNameReducer,
-    //changePhotoReducer,
-    //sendMessageReducer
+    changeNameReducer,
+    changePhotoReducer,
+    sendMessageReducer,
 })
 
 export const store = createStore(rootReducer, composeWithDevTools());

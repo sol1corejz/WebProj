@@ -35,6 +35,10 @@
     min-width: 980px;
 }
 
+.AuthPage{
+    position: absolute;
+}
+
 @media (max-width: 1400px){
     .App{
         overflow: auto;

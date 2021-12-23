@@ -1,18 +1,26 @@
 import React from 'react';
 import styles from "./PersonalCard.module.css";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+import {useSelector} from "react-redux";
 
-const Name = (props) => {
+
+const Name = () => {
+
+    const state = useSelector(state => state.changeNameReducer.userName)
+
     return (
-        <div className={styles.Name}>{props.name}</div>
+        <div className={styles.Name}>{state}</div>
     )
 }
 
 const Avatar = () => {
+
+    const state = useSelector(state => state.changePhotoReducer.photoLink)
+
     return(
         <div className={styles.photoWrapper}>
             <img className={styles.PersonalPhoto}
-                 src="https://pixelbox.ru/wp-content/uploads/2021/05/ava-vk-animal-91.jpg"
+                 src={state}
                  alt="ProfilePhoto"
             />
         </div>
@@ -23,12 +31,10 @@ const PersonalCard = () => {
     return (
         <div className={styles.PersonalCard}>
             <Avatar/>
-
-            <Name name={'Вадим Казаев'}/>
-
+            <Name/>
             <div className={styles.Buttons}>
-                <Link to={'/search'} className={styles.searchButton}/>
-                <Link to={'/settings'} className={styles.settingsButton}/>
+                <NavLink to={'/search'} className={styles.searchButton}/>
+                <NavLink to={'/settings'} className={styles.settingsButton}/>
             </div>
 
         </div>

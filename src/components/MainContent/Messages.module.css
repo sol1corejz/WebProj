@@ -11,6 +11,7 @@
     padding-top: 20px;
     padding-left: 50px;
     overflow-y: auto;
+
 }
 .messageContainer{
     display: inline-flex;

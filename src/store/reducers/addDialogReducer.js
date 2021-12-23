@@ -1,9 +1,9 @@
 let defaultState = {
         dialogsPage: [
-            {id: 1, name: 'Иван'},
-            {id: 2, name: 'Олег'},
-            {id: 3, name: 'Андрей'},
-            {id: 4, name: 'Дмитрий'},
+            {dialogId: 1, name: 'Иван'},
+            {dialogId: 2, name: 'Олег'},
+            {dialogId: 3, name: 'Андрей'},
+            {dialogId: 4, name: 'Дмитрий'},
         ]
 }
 

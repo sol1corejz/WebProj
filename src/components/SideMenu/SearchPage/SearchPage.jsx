@@ -6,29 +6,32 @@ import {addDialogAction} from "../../../store/reducers/addDialogReducer";
 const SearchPage = () => {
 
     const dispatch = useDispatch();
+    const [value, setValue] = useState('')
 
     const findPerson = (name) => {
+
         const newDialog = {
-            id: Date.now(),
+            dialogId: Date.now(),
             name: name
         }
+        console.log(newDialog)
         dispatch(addDialogAction(newDialog));
         setValue('');
     }
 
-    const [value, setValue] = useState('')
     return (
         <div className={styles.wrapper}>
-            <input
-                className={styles.inputBox}
-                placeholder={'Введите имя пользователя'}
-                value={value}
-                onChange={event => setValue(event.target.value)}
-            />
-            <button
-                className={styles.submitButton}
-                onClick={() => findPerson(value)}
-            >Найти</button>
+                <input
+                    className={styles.inputBox}
+                    placeholder={'Введите имя пользователя'}
+                    value={value}
+                    onChange={event => setValue(event.target.value)}
+                />
+                <button
+                    className={styles.submitButton}
+                    onClick={() => findPerson(value)}
+                >Найти
+                </button>
         </div>
     );
 };

@@ -5,24 +5,24 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import SettingsPage from "./components/SideMenu/SettingsPage/SettingsPage";
 import SearchPage from "./components/SideMenu/SearchPage/SearchPage";
 
-function App() {
 
+
+function App() {
     return (
         <BrowserRouter>
             <div className="App">
                 <div className="global">
-                    <SideMenu/>
-                    <div className='contentWrapper'>
-                        <Routes>
-                            <Route path='/messages/*' element={<Messages/>}/>
-                            <Route path='/settings' element={<SettingsPage/>}/>
-                            <Route path='/search' element={<SearchPage/>}/>
-                        </Routes>
-                    </div>
+                <SideMenu/>
+                <div className='contentWrapper'>
+                    <Routes>
+                        <Route path='/messages/*' element={<Messages/>}/>
+                        <Route path='/settings/' element={<SettingsPage/>}/>
+                        <Route path='/search/' element={<SearchPage/>}/>
+                    </Routes>
                 </div>
             </div>
+            </div>
         </BrowserRouter>
-
     );
 }
 

@@ -1,60 +1,58 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "./Messages.module.css";
+import {useDispatch, useSelector} from "react-redux";
+import {sendMessageAction} from "../../store/reducers/sendMessageReducer";
 
-const messages = [
-    {date:1, contentType: 'incoming', messageText: 'Hello'},
-    {date:2, contentType: 'incoming', messageText: 'gay'},
-    {date:3, contentType: 'incoming', messageText: 'ahahah'},
-    {date:4, contentType: 'outgoing', messageText: 'Hi'},
-    {date:5, contentType: 'outgoing', messageText: 'Negro'},
-    {date:6, contentType: 'incoming', messageText: 'Text4'},
-    {date:7, contentType: 'incoming', messageText: 'Text4'},
-    {date:8, contentType: 'outgoing', messageText: 'Text4Text4Text4Text4Text4Text4'},
-    {date:9, contentType: 'incoming', messageText: 'Text4'},
-    {date:10, contentType: 'incoming', messageText: 'Text4'},
-    {date:4, contentType: 'outgoing', messageText: 'Text4'},
-    {date:4, contentType: 'outgoing', messageText: 'Text4'},
-    {date:4, contentType: 'incoming', messageText: 'Text4'},
-    {date:4, contentType: 'incoming', messageText: 'Text4'},
-    {date:4, contentType: 'incoming', messageText: 'Text4'},
-    {date:4, contentType: 'incoming', messageText: 'Text4'},
-    {date:4, contentType: 'outgoing', messageText: 'Text4'},
-    {date:4, contentType: 'incoming', messageText: 'Text4'},
-    {date:4, contentType: 'incoming', messageText: 'Text4'},
-    {date:4, contentType: 'incoming', messageText: 'Text4'},
-    {date:4, contentType: 'incoming', messageText: 'bb, marginal'},
-    {date:4, contentType: 'outgoing', messageText: 'bb!'},
-];
+const Message = ({key,mText, contentType}) => {
 
-
-const outgoingMsg = 'outgoing';
-
-
-const sendMessage = (text) => {
-    messages.push({date: Date.now(), contentType: outgoingMsg, messageText: text});
-    console.log(messages)
-}
-
-const Message = (props) => {
     return (
-        <div className={styles.messageContainer + ' ' + `${props.contentType === outgoingMsg ? styles.outgoing : ''}`}>
-            {props.mText}
+        <div className={styles.messageContainer + ' ' + `${contentType === 'outgoing' ? styles.outgoing : ''}`}>
+            {mText}
         </div>
     );
 };
 
 const InputBox = () => {
+
+    const dispatch = useDispatch();
+
+    const [newMessage, setNewMessage] = useState('')
+
+    const sendMessage = (text) => {
+        const newMsg = {
+            date: Date.now(),
+            contentType: 'outgoing',
+            messageText: text
+        }
+
+        dispatch(sendMessageAction(newMsg))
+        setNewMessage('')
+    }
+
     return (
         <div className={styles.sendMessageBox}>
-            <textarea className={styles.inputBox} placeholder={'Введите сообщение...'} maxLength={255}/>
-            <button className={styles.sendButton} onClick={() => sendMessage()}>Отправить</button>
+            <textarea
+                className={styles.inputBox}
+                placeholder={'Введите сообщение...'}
+                maxLength={255}
+                value={newMessage}
+                onChange={event => setNewMessage(event.target.value)}
+            />
+            <button
+                className={styles.sendButton}
+                onClick={() => sendMessage(newMessage)}
+            >Отправить
+            </button>
         </div>
     );
 };
 
-let messagesElements = messages.map(m => <Message id={m.id} mText={m.messageText} contentType={m.contentType}/>)
 
-const Messages = (props) => {
+const Messages = () => {
+
+    const state = useSelector(state => state.sendMessageReducer.messages)
+    const messagesElements = state.map(m => <Message key={m.date} mText={m.messageText} contentType={m.contentType}/>)
+
     return (
         <div className={styles.contentWrapper}>
             <div className={styles.messages}>
@@ -62,6 +60,7 @@ const Messages = (props) => {
                     messagesElements
                 }
             </div>
+
             <InputBox/>
         </div>
 

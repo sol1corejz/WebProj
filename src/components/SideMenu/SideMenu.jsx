@@ -5,10 +5,10 @@ import PersonalCard from "./PersonalCard/PersonalCard";
 import {useSelector} from "react-redux";
 
 const SideMenu = () => {
-    console.log(useSelector(state => state.addDialogReducer.dialogsPage))
+
     const state = useSelector(state => state.addDialogReducer.dialogsPage)
-    console.log(state)
-    const dialogElements = state.map( d => <Dialog id={d.id} name={d.name}/>);
+    const dialogElements = state.map(d => <Dialog key={d.dialogId} id={d.dialogId} name={d.name}/>);
+
     return (
         <nav className={styles.dialogsMenu}>
             <PersonalCard/>

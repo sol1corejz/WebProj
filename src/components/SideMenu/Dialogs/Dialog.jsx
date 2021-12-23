@@ -20,9 +20,11 @@ const DialogName = (props) => {
 };
 
 const Dialog = (props) => {
+    console.log(props.id)
+
     return (
         <div className={styles.dialog}>
-            <NavLink to={`messages/dialog${props.id}`} activeClassName={styles.activeLink}>
+            <NavLink to={`messages/${props.id}`}>
                 <Avatar/>
                 <DialogName name={props.name}/>
             </NavLink>
