@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 const SideMenu = () => {
 
     const state = useSelector(state => state.addDialogReducer.dialogsPage)
-    const dialogElements = state.map(d => <Dialog key={d.dialogId} id={d.dialogId} name={d.name}/>);
+    const dialogElements = state.map(d => <Dialog key={d.id} id={d.id} name={d.name} avatar={d.avatar}/>);
 
     return (
         <nav className={styles.dialogsMenu}>

@@ -1,20 +1,22 @@
 import React, {useState} from 'react';
 import s from "./Auth.module.css"
 import {useDispatch, useSelector} from "react-redux";
-import {authUserAction, newUserAction} from "../../store/reducers/authUserReducer";
+import {authUserAction} from "../../store/reducers/authUserReducer";
 import {useNavigate} from "react-router-dom";
-import axios from "axios";
+import {changeNameAction} from "../../store/reducers/changeNameReducer";
+import {changePhotoAction} from "../../store/reducers/changePhotoReducer";
+import {addDialogAction, findDialogsAction} from "../../store/reducers/addDialogReducer";
 
 
 const Auth = () => {
     const navigate = useNavigate();
 
-    const authState = useSelector(state => state.authUserReducer.auth)
     const dispatch = useDispatch();
 
     const [newLog, setNewLog] = useState('')
     const [newPass, setNewPass] = useState('')
     const [newName, setNewName] = useState('')
+
 
     const enter = (email, password) => {
         const obj = {
@@ -32,18 +34,32 @@ const Auth = () => {
             },
             body: JSON.stringify(obj)
         })
-            .then( (status) => {
-                if (status.ok){
-                    dispatch(authUserAction({data: status.ok}))
+            .then(response => response.json())
+            .then((status) => {
+
+                if (status.user) {
+                    dispatch(authUserAction({data: true}))
+
+                    const id = status.user.id;
+                    const name = status.user.name;
+                    const avatar = status.user.avatar;
+                    const friends = status.friends;
+
+                    dispatch(changeNameAction({name, id}));
+                    dispatch(changePhotoAction({avatar, id}))
+                    dispatch(findDialogsAction(friends))
+
                     navigate('/main');
+                } else {
+                    alert("Неправильный логин или пароль")
                 }
-                console.log(status)}
-            )
-            .catch( (error) => {
+            })
+            .catch((error) => {
                 console.log(error)
             });
 
     }
+
 
     const reg = (mail, password, name) => {
         let newUser = {
@@ -62,8 +78,7 @@ const Auth = () => {
             },
             body: JSON.stringify(newUser)
         })
-            .then( (status) => {
-                console.log('Request succeeded with JSON response', status);
+            .then((status) => {
                 alert('Статус регистрации ' + (status.ok ? 'Успешно' : 'Не удалось'))
             })
             .catch(function (error) {
