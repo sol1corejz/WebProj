@@ -9,7 +9,10 @@ const FIND_MESSAGE = 'FIND_MESSAGE'
 export const sendMessageReducer = (state = defaultState, action) => {
     switch (action.type) {
         case SEND_MESSAGE:
-            return {...state, messages: [...state.messages, action.data]}
+            if (action.data.text.length !== 0){
+                return {...state, messages: [...state.messages, action.data]}
+            }
+            return state
         case FIND_MESSAGE:
             return {...state, messages:  action.messages, id: action.id}
         default:

@@ -17,6 +17,10 @@ const SettingsPage = () => {
 
     function changePhoto(newPhotoLink){
 
+        if (newPhotoLink.length < 2){
+            return
+        }
+
         const obj = {
             id: changePhotoId,
             avatar: newPhotoLink
@@ -45,6 +49,10 @@ const SettingsPage = () => {
     }
 
     function changeName(newName) {
+
+        if (newName.length < 2){
+            return
+        }
 
         const obj = {
             id: changeNameId,

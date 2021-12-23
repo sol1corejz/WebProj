@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {sendMessageAction} from "../../store/reducers/sendMessageReducer";
 import {addDialogAction} from "../../store/reducers/addDialogReducer";
 
-const Message = ({key, idFrom, idTo, mText}) => {
+const Message = ({idFrom, idTo, mText}) => {
 
     const myId = useSelector(state => state.changeNameReducer.userId)
 
@@ -76,7 +76,7 @@ const InputBox = () => {
 const Messages = () => {
 
     const state = useSelector(state => state.sendMessageReducer.messages)
-    const messagesElements = state.map(m => <Message key={m.time} mText={m.text} idFrom={m.id_from} idTo={m.id_to}/>)
+    const messagesElements = state.map(m => <Message mText={m.text} idFrom={m.id_from} idTo={m.id_to}/>)
 
     return (
         <div className={styles.contentWrapper}>

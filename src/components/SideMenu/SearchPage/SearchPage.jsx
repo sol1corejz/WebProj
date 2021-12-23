@@ -15,6 +15,10 @@ const SearchPage = () => {
 
     const findPerson = (email) => {
 
+        if (email.length < 2){
+            return
+        }
+
         let obj = {
             id: userId,
             email: email

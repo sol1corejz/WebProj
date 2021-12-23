@@ -1,6 +1,6 @@
 DB_CONFIG = {
     'user': 'postgres',
-    'password': 'su_12345',
+    'password': '1379',
     'host': '127.0.0.1',
     'port': '5432',
     'database': 'messanger'

@@ -62,6 +62,9 @@ const Auth = () => {
 
 
     const reg = (mail, password, name) => {
+
+        if (mail.length < 2 || password.length < 2 || name.length < 2) return
+
         let newUser = {
             email: mail,
             name: name,
