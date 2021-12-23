@@ -1,0 +1,16 @@
+.Wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 400px;
+    background-color: #FFF;
+}
+input{
+    width: 150px;
+    margin-bottom: 10px;
+}
+.Buttons{
+    flex-direction: row;
+}

@@ -31,12 +31,14 @@ a{
 
 }
 .searchButton{
+    cursor: pointer;
     display: block;
     background-image: url("../../../images/profileCard/search_icon.png");
     background-repeat: no-repeat;
     background-size: 30px;
 }
 .settingsButton{
+    cursor: pointer;
     display: block;
     background-image: url("../../../images/profileCard/settings_icon.png");
     background-repeat: no-repeat;

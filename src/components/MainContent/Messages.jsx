@@ -29,6 +29,7 @@ const InputBox = () => {
         setNewMessage('')
     }
 
+
     return (
         <div className={styles.sendMessageBox}>
             <textarea

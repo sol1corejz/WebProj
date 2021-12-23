@@ -33,8 +33,8 @@ const PersonalCard = () => {
             <Avatar/>
             <Name/>
             <div className={styles.Buttons}>
-                <NavLink to={'/search'} className={styles.searchButton}/>
-                <NavLink to={'/settings'} className={styles.settingsButton}/>
+                <NavLink to={'/main/search'} className={styles.searchButton}/>
+                <NavLink to={'/main/settings'} className={styles.settingsButton}/>
             </div>
 
         </div>
