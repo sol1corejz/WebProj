@@ -32,7 +32,7 @@ const InputBox = () => {
             text: text,
         }
 
-        fetch('http://127.0.0.1:5000//send_massage', {
+        fetch('http://127.0.0.1:5000//send_message', {
             method: 'post',
             headers: {
                 'Access-Control-Allow-Origin': '*',

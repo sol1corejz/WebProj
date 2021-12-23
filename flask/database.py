@@ -75,7 +75,6 @@ def add_user(name, email, password):
 
 def add_message(id_from, id_to, text):
     try:
-        print(id_from, id_to)
         if len(Users.query.filter(or_(Users.id == id_from,
                                       Users.id == id_to)).all()) != 2:
             return False

@@ -36,7 +36,7 @@ const Dialog = (props) => {
             userId: userId
         }
 
-        fetch('http://127.0.0.1:5000//get_massages',{
+        fetch('http://127.0.0.1:5000//get_messages',{
             method: 'post',
             headers: {
                 'Access-Control-Allow-Origin': '*',
